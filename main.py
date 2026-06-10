@@ -1,5 +1,5 @@
 from dataManager import loadData, saveData
-from options import addOrdemDeServico
+from options import addOrdemDeServico, viewOrdemDeServico
 
 def menu():
     print("Sistema de Manuntenção e Reparos Prediais")
@@ -23,10 +23,8 @@ dados = loadData()
 
 while menu != 4:
     if opcao == 1:
-        dados = addOrdemDeServico()
-    """elif opcao == 2:
-        delOrdemDeServico(dados)
+        addOrdemDeServico(dados)
     elif opcao == 3:
-        listarOrdemDeServico(dados)"""
+        viewOrdemDeServico(dados)
 
     opcao = menu()

@@ -1,6 +1,10 @@
 from classOrdemDeServico import OrdemDeServico
 from pathlib import Path
 
+"""def dirCreate():
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)"""
+
 def loadData():
     data = []
 
