@@ -1,7 +1,5 @@
-from datetime import date
-
 class OrdemDeServico:
-    def _init_(self, requisitante: str, telefone: str, descricao: str, dataOrdSer: date):
+    def __init__(self, requisitante: str, telefone: str, descricao: str, dataOrdSer: str):
         self.requisitante = requisitante
         self.telefone = telefone
         self.descricao = descricao
