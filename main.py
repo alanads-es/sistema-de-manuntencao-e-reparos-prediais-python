@@ -1,3 +1,5 @@
+'''/main.py'''
+
 from dataManager import loadData, saveData
 from options import addOrdemDeServico, viewOrdemDeServico, delOrdemDeServico
 
