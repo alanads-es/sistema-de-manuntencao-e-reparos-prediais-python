@@ -14,7 +14,7 @@ def addOrdemDeServico(data):
         return
 
     try:
-        datetime.strptime(dataOrdSer, "%d/%m/%Y").date()
+        datetime.strptime(dataOrdSer, "%d/%m/%Y")
     except ValueError:
         print("\nFormato de data inválido ou data inválida. Utilize o formato DD/MM/AAAA\n")
         return
@@ -36,16 +36,26 @@ def viewOrdemDeServico(data):
         print("Nenhuma ordem de serviço cadastrada.")
         return
 
-    data.sort(key=lambda c: c.requisitante)
     for (pos, ordem) in enumerate(data):
         print(f"{pos + 1}. Requisitante: {ordem.requisitante}\t Telefone: {ordem.telefone}\t Descrição: {ordem.descricao}\t Data da ordem de serviço: {ordem.dataOrdSer}")
 
 
 def delOrdemDeServico(data):
+    if len(data) == 0:
+        print("\nNenhuma ordem de serviço cadastrada.\n")
+        return
+    
     viewOrdemDeServico(data)
-    pos = int(input("Digite o número da posição da ordem de serviço a ser removida: "))
+
+    try:
+        pos = int(input("Digite o número da posição da ordem de serviço a ser removida: "))
+    except ValueError:
+        print("\nA posição deve ser um número inteiro.\n")
+        return
+
     if pos < 1 or pos > len(data):
         print("\nPosição inválida. Tente novamente.\n")
         return
-    print(f"\nA ordem de chegada da posição {pos} foi removida.\n")
+
     data.pop(pos - 1)
+    print(f"\nOrdem de serviço da posição {pos} removida.\n")
