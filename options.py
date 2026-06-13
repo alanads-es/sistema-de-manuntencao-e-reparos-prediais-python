@@ -39,8 +39,14 @@ def addOrdemDeServico(data):
     '''Formata o telefone para o padrão (XX) XXXXX-XXXX'''
     phoneNumberFormated = re.sub(standardPhoneNumber, r"(\1) \2-\3", clearPhoneNumber)
 
-    '''Cria e adiciona a nova ordem de serviço na lista'''
-    data.append(OrdemDeServico(requisitante, phoneNumberFormated, descricao, dataOrdSer))
+    '''Gera um identificador único para a nova ordem de serviço'''
+    if len(data) == 0:
+        idOrdem = 1
+    else:
+        idOrdem = data[-1].idOrdem + 1
+
+    '''Cria a ordem de serviço com seu identificador e adiciona na lista'''
+    data.append(OrdemDeServico(idOrdem, requisitante, phoneNumberFormated, descricao, dataOrdSer))
     print("\nOrdem de serviço cadastrada com sucesso.\n")
 
 
@@ -53,8 +59,8 @@ def viewOrdemDeServico(data):
         return
 
     '''Percorre e exibe cada ordem cadastrada'''
-    for (pos, ordem) in enumerate(data):
-        print(f"{pos + 1}. Requisitante: {ordem.requisitante}\t Telefone: {ordem.telefone}\t Descrição: {ordem.descricao}\t Data da ordem de serviço: {ordem.dataOrdSer}")
+    for ordem in data:
+        print(f"{ordem.idOrdem}. Requisitante: {ordem.requisitante}\t Telefone: {ordem.telefone}\t Descrição: {ordem.descricao}\t Data da ordem de serviço: {ordem.dataOrdSer}")
 
 
 '''Remove uma ordem de serviço escolhida pelo usuário'''
@@ -68,18 +74,24 @@ def delOrdemDeServico(data):
     '''Exibe as ordens cadastradas'''
     viewOrdemDeServico(data)
 
-    '''Solicita a posição da ordem a ser removida, e verifica se um número inteiro foi inserido'''
+    '''Solicita o ID da ordem a ser removida, e verifica se o ID informado no input é um número inteiro'''
     try:
-        pos = int(input("Digite o número da posição da ordem de serviço a ser removida: "))
+        idOrdem = int(input("Digite o ID da ordem de serviço a ser removida: "))
     except ValueError:
-        print("\nA posição deve ser um número inteiro.\n")
+        print("\nO ID deve ser um número inteiro.\n")
         return
 
-    '''Verifica se a posição informada existe'''
-    if pos < 1 or pos > len(data):
-        print("\nPosição inválida. Tente novamente.\n")
-        return
+    '''Procura a ordem correspondente ao ID informado'''
+    for ordem in data:
 
-    '''Remove a ordem selecionada da lista'''
-    data.pop(pos - 1)
-    print(f"\nOrdem de serviço da posição {pos} removida.\n")
+        '''Verifica se o ID da ordem atual corresponde ao ID informado'''
+        if ordem.idOrdem == idOrdem:
+
+            '''Remove a ordem de serviço encontrada da lista'''
+            data.remove(ordem)
+            print(f"\nOrdem de serviço de ID {idOrdem} removida.\n")
+            return
+
+    '''Executado caso nenhuma ordem com o ID informado seja encontrada'''
+    print("\nID não encontrado.\n")
+    

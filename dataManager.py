@@ -28,11 +28,11 @@ def loadData():
         '''Ignora linhas vazias'''
         if line.strip() != "":
 
-            '''Separa os dados da ordem de serviço'''
-            requisitante, telefone, descricao, dataOrdSer = line.strip().split(":")
+            '''Separa o identificador e os demais dados da ordem de serviço'''
+            idOrdem, requisitante, telefone, descricao, dataOrdSer = line.strip().split(":")
 
             '''Cria um objeto e adiciona na lista'''
-            data.append(OrdemDeServico(requisitante, telefone, descricao, dataOrdSer))
+            data.append(OrdemDeServico(int(idOrdem), requisitante, telefone, descricao, dataOrdSer))
     
     '''Fecha o arquivo após a leitura'''
     archive.close()
