@@ -4,10 +4,10 @@ import re
 
 
 def addOrdemDeServico(data):
-    requisitante = input(str("Digite o nome do requisitante: ")).strip()
-    telefone = input(str("Digite o telefone: ")).strip()
-    descricao = input(str("Digite a descrição da ordem de serviço: ")).strip()
-    dataOrdSer = input(("Digite a data da ordem de serviço: ")).strip()
+    requisitante = input("Digite o nome do requisitante: ").strip()
+    telefone = input("Digite o telefone: ").strip()
+    descricao = input("Digite a descrição da ordem de serviço: ").strip()
+    dataOrdSer = input("Digite a data da ordem de serviço: ").strip()
 
     if requisitante == "" or telefone == "" or descricao == "" or dataOrdSer == "":
         print("\nRequisitante, Telefone, Descrição e Data são campos obrigatórios. Digite novamente!\n")
@@ -29,11 +29,12 @@ def addOrdemDeServico(data):
     phoneNumberFormated = re.sub(standardPhoneNumber, r"(\1) \2-\3", clearPhoneNumber)
 
     data.append(OrdemDeServico(requisitante, phoneNumberFormated, descricao, dataOrdSer))
+    print("\nOrdem de serviço cadastrada com sucesso.\n")
 
 
 def viewOrdemDeServico(data):
     if len(data) == 0:
-        print("Nenhuma ordem de serviço cadastrada.")
+        print("\nNenhuma ordem de serviço cadastrada.\n")
         return
 
     for (pos, ordem) in enumerate(data):
