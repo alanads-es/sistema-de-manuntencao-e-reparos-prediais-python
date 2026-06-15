@@ -41,8 +41,8 @@ def addOrdemDeServico():
     phoneNumberFormated = re.sub(standardPhoneNumber, r"(\1) \2-\3", clearPhoneNumber)
     return requisitante, phoneNumberFormated, descricao, dataOrdSer
 
-def novaOrdemDeServico(data):
-
+def novaOrdemDeServico(data):   
+    '''Cria e adiciona uma nova ordem de serviço à lista.'''
     dados = addOrdemDeServico()
 
     if dados is None:
@@ -81,11 +81,14 @@ def editOrdemDeServico(data):
         '''Verifica se encontrou a ordem'''
         if ordem.idOrdem == idOrdem:
 
+            '''Solicita os novos dados da ordem de serviço e realiza as validações necessárias'''
             dados = addOrdemDeServico()
 
+            '''Interrompe a edição caso algum dado seja inválido'''
             if dados is None:
                 return
 
+            '''Desempacota os dados retornados para suas respectivas variáveis'''
             requisitante, phoneNumberFormated, descricao, dataOrdSer = dados
 
             '''Atualiza os dados da ordem'''
