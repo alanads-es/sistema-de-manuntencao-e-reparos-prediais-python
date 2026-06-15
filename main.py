@@ -21,15 +21,15 @@ def menu():
 
 Sistema de Manutenção e Reparos Prediais
 
-{Cor.RESET}""")
+{Cor.TITULO}""")
         print("➕ [1] Adicionar ordem de serviço")
-        print("🗑️ [2] Remover a ordem de serviço")
-        print("✏️ [3] Editar ordem de serviço")
+        print("🗑️  [2] Remover a ordem de serviço")
+        print("✏️  [3] Editar ordem de serviço")
         print("📋 [4] Listar as ordens de serviço")
         print("🚪 [5] Sair")
         print(Cor.RESET, end="")
 
-        opcao = input("Digite uma opção: ")
+        opcao = input("\nDigite uma opção: ")
 
         if opcao not in ("1", "2", "3", "4", "5"):
             print(f"\n{Cor.AVISO}⚠️ Opção indisponível, escolha uma opção entre 1 e 5!{Cor.RESET}\n")

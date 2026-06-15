@@ -70,7 +70,7 @@ def editOrdemDeServico(data):
 
     '''Solicita o ID da ordem a ser editada'''
     try:
-        idOrdem = int(input("Digite o ID da ordem de serviço a ser editada: "))
+        idOrdem = int(input("\nDigite o ID da ordem de serviço a ser editada: "))
     except ValueError:
         print(f"\n{Cor.ERRO}❌ O ID deve ser um número inteiro.{Cor.RESET}\n")
         return
@@ -126,7 +126,7 @@ def delOrdemDeServico(data):
 
     '''Solicita o ID da ordem a ser removida, e verifica se o ID informado no input é um número inteiro'''
     try:
-        idOrdem = int(input("Digite o ID da ordem de serviço a ser removida: "))
+        idOrdem = int(input("\nDigite o ID da ordem de serviço a ser removida: "))
     except ValueError:
         print(f"\n{Cor.ERRO}❌ O ID deve ser um número inteiro.{Cor.RESET}\n")
         return
