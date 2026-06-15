@@ -62,7 +62,7 @@ def novaOrdemDeServico(data):
 def editOrdemDeServico(data):
     '''Verifica se existem registros cadastrados'''
     if len(data) == 0:
-        print(f"\n{Cor.AVISO}⚠️ Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
+        print(f"\n{Cor.AVISO}⚠️  Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
         return
 
     '''Exibe as ordens cadastradas'''
@@ -106,7 +106,7 @@ def viewOrdemDeServico(data):
 
     '''Verifica se existem registros cadastrados'''
     if len(data) == 0:
-        print(f"\n{Cor.AVISO}⚠️ Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
+        print(f"\n{Cor.AVISO}⚠️  Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
         return
 
     '''Percorre e exibe cada ordem cadastrada'''
@@ -118,7 +118,7 @@ def delOrdemDeServico(data):
     
     '''Verifica se existem registros cadastrados'''
     if len(data) == 0:
-        print(f"\n{Cor.AVISO}⚠️ Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
+        print(f"\n{Cor.AVISO}⚠️  Nenhuma ordem de serviço cadastrada.{Cor.RESET}\n")
         return
     
     '''Exibe as ordens cadastradas'''
