@@ -50,7 +50,7 @@ def saveData(data):
     for ordem in data:
 
         '''Escreve cada ordem no arquivo'''
-        archive.write(f"{ordem.StorageLine()}\n")
+        archive.write(f"{ordem.storageLine()}\n")
 
     '''Fecha o arquivo após a gravação'''
     archive.close()

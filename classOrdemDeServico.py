@@ -12,10 +12,6 @@ class OrdemDeServico:
         self.descricao = descricao
         self.dataOrdSer = dataOrdSer
 
-    '''Retorna os dados da ordem formatados para exibição'''
-    def listarOrdemServico(self):
-        return f"{self.idOrdem}, {self.requisitante}, {self.telefone}, {self.descricao}, {self.dataOrdSer}"
-    
     '''Retorna o identificador e os dados da ordem formatados para armazenamento em arquivo'''
-    def StorageLine(self):
+    def storageLine(self):
         return f"{self.idOrdem}:{self.requisitante}:{self.telefone}:{self.descricao}:{self.dataOrdSer}"
